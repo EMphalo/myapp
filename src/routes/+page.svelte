@@ -8,6 +8,21 @@
     }
 
     $: doubled = count * 2;
+    $: if (count ==10 ){
+        alert(`maxmum of 10 has been reached!`);
+        count = 0;
+    }
+    
+    let numbers = [1, 2, 3, 4, 5];
+
+    function addNumber() {
+
+        numbers .push(numbers.length + 1);
+        numbers = [...numbers, numbers.length + 1]
+    }
+
+    $: sum  = numbers.reduce((total, currentNumber) => total + currentNumber, 0);
+
 
 </script>
 <h1>Welcome to Svelt</h1>
@@ -20,6 +35,11 @@
     Clicked {count}
     {count === 1 ? 'time' : 'times'}
 </button>
+<button on:click={addNumber}>
+    Add a Number 
+</button> 
+
+<p>{numbers.join(' + ')} = {sum}</p>
 <Nested />
 
 <style>
