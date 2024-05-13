@@ -40,7 +40,7 @@
 </button> 
 
 <p>{numbers.join(' + ')} = {sum}</p>
-<Nested />
+<Nested answer = {42} />
 
 <style>
     h1 {

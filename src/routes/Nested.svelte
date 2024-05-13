@@ -1,5 +1,13 @@
+<script>
+    export let answer;
+
+</script>
 <p>
     This is a parapraph in another component
+    
+</p>
+<p>
+    The answer is<span>{answer}</span>
 </p>
 
 <style>
