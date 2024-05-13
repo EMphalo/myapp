@@ -1,5 +1,6 @@
 <script>
     import Nested from "./Nested.svelte";
+    import PackageInfo from "./PackageInfo.svelte";
     let textToDisplay = 'this is string containing <h1><i><strong>HTML!</strong></i></h1>';
 
     let count = 0;
@@ -23,7 +24,12 @@
 
     $: sum  = numbers.reduce((total, currentNumber) => total + currentNumber, 0);
 
-
+    const pkg = {
+        name: 'svelte',
+        speed: 'blazing',
+        version: 4,
+        website: 'http://svelte.dev'
+    }
 </script>
 <h1>Welcome to Svelt</h1>
 <p>
@@ -40,7 +46,10 @@
 </button> 
 
 <p>{numbers.join(' + ')} = {sum}</p>
+
 <Nested answer = {43} />
+
+<PackageInfo {...pkg}/>
 
 <style>
     h1 {
