@@ -30,6 +30,10 @@
         version: 4,
         website: 'http://svelte.dev'
     }
+
+    const colors = ['red', 'green', 'blue', 'cyan', 'black','violet'];
+    let selectedColor = colors[0];
+
 </script>
 <h1>Welcome to Svelt</h1>
 <p>
@@ -51,6 +55,22 @@
 
 <PackageInfo {...pkg}/>
 
+<h1 style="color: {selectedColor}"> 
+    Pick a Colour    
+</h1>
+
+<div id="btn-group">
+    {#each colors as color, i}
+        <button
+            aria-current={selectedColor ===color}
+            aria-label = {color}
+            style = "background:{color}"
+            on:click={() => selectedColor = color}
+            >{i +1}
+        </button>
+    {/each }
+</div>
+
 <style>
     h1 {
         border-bottom: 0.5px solid blue;
@@ -63,4 +83,29 @@
         padding: 1em 2em;
         color: white;
     }
+    h1 {
+		transition: color 0.2s;
+	}
+
+	div {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		grid-gap: 5px;
+		max-width: 400px;
+	}
+
+	#btn-group button {
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--color, #fff);
+		transform: translate(-2px,-2px);
+		filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
+		transition: all 0.1s;
+	}
+
+	#btn-group button[aria-current="true"] {
+		transform: none;
+		filter: none;
+		box-shadow: inset 3px 3px 4px rgba(255, 0, 0, 0.2);
+	}
 </style>
