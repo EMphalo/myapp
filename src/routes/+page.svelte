@@ -2,13 +2,14 @@
     import Nested from "./Nested.svelte";
     let textToDisplay = 'this is string containing <h1><i><strong>HTML!</strong></i></h1>';
 
+    let name = '';
     let count = 0;
     function increment() {
         count += 1;
     }
 
     $: doubled = count * 2;
-    $: if (count ==10 ){
+    $: if (count == 10 ){
         alert(`maxmum of 10 has been reached!`);
         count = 0;
     }
@@ -42,6 +43,9 @@
 <p>{numbers.join(' + ')} = {sum}</p>
 <Nested answer = {42} />
 
+<input type="text" bind:value={name} >
+<br>
+<h1>Hello {name}</h1>
 <style>
     h1 {
         border-bottom: 0.5px solid blue;
