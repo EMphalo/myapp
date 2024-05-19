@@ -1,6 +1,6 @@
 <script>
     export let answer;
-
+ 
 </script>
 <p>
     This is a parapraph in another component
