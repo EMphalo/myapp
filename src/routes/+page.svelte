@@ -18,7 +18,7 @@
 
     function addNumber() {
 
-        numbers .push(numbers.length + 1);
+        numbers.push(numbers.length + 1);
         numbers = [...numbers, numbers.length + 1]
     }
 
