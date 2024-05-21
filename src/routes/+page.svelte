@@ -1,7 +1,7 @@
 <script>
     import Nested from "./Nested.svelte";
     import PackageInfo from "./PackageInfo.svelte";
-	import { time } from "./stores";
+	import { time, elapsed } from "./stores";
 
     let textToDisplay = 'this is string containing <h1><i><strong>HTML!</strong></i></h1>';
 
@@ -48,6 +48,16 @@
 
     
 </script>
+
+<h1 class="timeDisplay"> The time is <span class="timeValue">{formatter.format($time)}</span></h1>
+<h1 class="timeDisplay"> 
+    This page has been opened for
+    <span class="timeValue">
+        {$elapsed}
+        {$elapsed === 1 ? 'second' : 'seconds'}
+    </span>
+</h1>
+
 <h1>Welcome to Svelt</h1>
 <p>
     Introduction page
@@ -71,8 +81,6 @@
 <h1 style="color: {selectedColor}"> 
     Pick a Colour    
 </h1>
-
-<h1 id="timeDisplay"> The time is <span id="timeValue">{formatter.format($time)}</span></h1>
 
 <div id="btn-group">
     {#each colors as color, i}
@@ -123,4 +131,9 @@
 		filter: none;
 		box-shadow: inset 3px 3px 4px rgba(255, 0, 0, 0.2);
 	}
+    .timeDisplay{
+        color: #fff;
+        box-shadow: inset 3px 3px 4px rgba(255, 0, 0, 0.2);
+        background: linear-gradient(rgb(14, 169, 190),rgb(1, 11, 105),rgba(6, 141, 85, 0.918))
+    }
 </style>
