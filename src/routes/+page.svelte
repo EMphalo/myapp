@@ -1,6 +1,8 @@
 <script>
     import Nested from "./Nested.svelte";
     import PackageInfo from "./PackageInfo.svelte";
+	import { time } from "./stores";
+
     let textToDisplay = 'this is string containing <h1><i><strong>HTML!</strong></i></h1>';
 
     let count = 0;
@@ -34,6 +36,17 @@
     const colors = ['red', 'green', 'blue', 'cyan', 'black','violet'];
     let selectedColor = colors[0];
 
+    //time
+    const formatter = new Intl.DateTimeFormat('en',
+        {
+            hour12:true,
+            hour:'numeric',
+            minute:'2-digit',
+            second:'2-digit'
+        }
+    )
+
+    
 </script>
 <h1>Welcome to Svelt</h1>
 <p>
@@ -58,6 +71,8 @@
 <h1 style="color: {selectedColor}"> 
     Pick a Colour    
 </h1>
+
+<h1 id="timeDisplay"> The time is <span id="timeValue">{formatter.format($time)}</span></h1>
 
 <div id="btn-group">
     {#each colors as color, i}
