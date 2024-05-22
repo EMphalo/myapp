@@ -56,24 +56,6 @@
 
     
 </script>
-
-<progress value={$progress} />
-
-<button on:click={() => progress.set(0)}>
-    0%
-</button>
-<button on:click={() => progress.set(0.25)}>
-    25%
-</button>
-<button on:click={() => progress.set(0.5)}>
-    50%
-</button>
-<button on:click={() => progress.set(0.75)}>
-    70%
-</button>
-<button on:click={() => progress.set(1)}>
-    100%
-</button>
 <h1>Welcome to Svelt</h1>
 <p>
     Introduction page
@@ -97,8 +79,6 @@
 <h1 style="color: {selectedColor}"> 
     Pick a Colour    
 </h1>
-
-<h1 id="timeDisplay"> The time is <span id="timeValue">{formatter.format($time)}</span></h1>
 
 <div id="btn-group">
     {#each colors as color, i}
@@ -153,4 +133,9 @@
 		filter: none;
 		box-shadow: inset 3px 3px 4px rgba(255, 0, 0, 0.2);
 	}
+    .timeDisplay{
+        color: #fff;
+        box-shadow: inset 3px 3px 4px rgba(255, 0, 0, 0.2);
+        background: linear-gradient(rgb(14, 169, 190),rgb(1, 11, 105),rgba(6, 141, 85, 0.918))
+    }
 </style>
