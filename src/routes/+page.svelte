@@ -2,6 +2,8 @@
     import Nested from "./Nested.svelte";
     import PackageInfo from "./PackageInfo.svelte";
 	import { time } from "./stores";
+    import { tweened } from "svelte/motion";
+    import { cubicOut } from "svelte/easing";
 
     let textToDisplay = 'this is string containing <h1><i><strong>HTML!</strong></i></h1>';
 
@@ -44,10 +46,34 @@
             minute:'2-digit',
             second:'2-digit'
         }
-    )
+    );
+
+    const progress = tweened(0, {
+        duration: 1000,
+        easing: cubicOut
+    });
+
 
     
 </script>
+
+<progress value={$progress} />
+
+<button on:click={() => progress.set(0)}>
+    0%
+</button>
+<button on:click={() => progress.set(0.25)}>
+    25%
+</button>
+<button on:click={() => progress.set(0.5)}>
+    50%
+</button>
+<button on:click={() => progress.set(0.75)}>
+    70%
+</button>
+<button on:click={() => progress.set(1)}>
+    100%
+</button>
 <h1>Welcome to Svelt</h1>
 <p>
     Introduction page
@@ -87,6 +113,10 @@
 </div>
 
 <style>
+    progress {
+        display: block;
+        width: 100%;
+    }
     h1 {
         border-bottom: 0.5px solid blue;
     }
