@@ -1,7 +1,7 @@
 <script>
     import Nested from "./Nested.svelte";
     import PackageInfo from "./PackageInfo.svelte";
-	import { time } from "./stores";
+	// import { time } from "./stores";
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
 
