@@ -53,12 +53,18 @@
         easing: cubicOut
     });
 
-
+    let selection = '';
+    
+    const handleSelectionChange = (e) => selection = document.getSelection();
     
 </script>
 <!--  -->
 
 <progress value="{$progress}"/>
+
+<svelte:document on:selectionchange={handleSelectionChange} />
+
+<p>Selected Text: {selection} </p>
 
 <button on:click={() => progress.set(0)}>
     0%
