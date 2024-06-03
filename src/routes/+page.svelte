@@ -24,8 +24,15 @@
 
     $: sum  = numbers.reduce((total, currentNumber) => total + currentNumber, 0);
 
-
+    let selection = '';
+    
+    const handleSelectionChange = (e) => selection = document.getSelection();
 </script>
+
+<svelte:document on:selectionchange ={handleSelectionChange} />
+
+<h1>Selected Text: {selection} </h1>
+
 <h1>Welcome to Svelt</h1>
 <p>
     Introduction page
